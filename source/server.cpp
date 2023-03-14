@@ -39,7 +39,7 @@ int main() {
                     const drogon::HttpRequestPtr &req,
                     std::function<void(const drogon::HttpResponsePtr &)> &&callback) {
                 auto resp = drogon::HttpResponse::newHttpResponse();
-                resp->setBody("We love C++");
+                resp->setBody("We ♥ C++");
                 callback(resp);
             })
             .setThreadNum(LibHelpers::getThreadsForServer())
