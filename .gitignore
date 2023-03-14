@@ -1,0 +1,6 @@
+# Project exclude paths
+/build/
+/build-cmake/
+/build-ninja/
+/cmake-build-debug/
+/cmake-build-release/
