@@ -20,6 +20,7 @@ namespace LibConstants {
          const auto port = 3001;
          const auto uploadFolder = "./uploads";
          const auto logFolder = "./logs";
+         const auto name = "asman/1.0.1";
      }
     /**
      * Database Configurations

@@ -6,5 +6,5 @@ else
   rm -frd $DIRECTORY
 fi
 
-cmake -B $DIRECTORY -S . -DCMAKE_CXX_COMPILER=g++-12 -DCMAKE_BUILD_TYPES=RELEASE -G Ninja &&
+cmake -B $DIRECTORY -S . -DCMAKE_CXX_COMPILER=g++-12 -DCMAKE_BUILD_TYPE=Release -G Ninja &&
   cmake --build $DIRECTORY --target codingveda_backend_cpp

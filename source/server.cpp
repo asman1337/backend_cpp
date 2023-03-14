@@ -33,7 +33,7 @@ int main() {
             .setLogLevel(trantor::Logger::kError)
             .setUploadPath("./uploads")
             .enableGzip(true)
-            .setServerHeaderField("asman/1.0.1")
+            .setServerHeaderField(LibConstants::Server::name)
             .addListener(LibConstants::Server::host, LibConstants::Server::port)
             .registerHandler("/", [](
                     const drogon::HttpRequestPtr &req,

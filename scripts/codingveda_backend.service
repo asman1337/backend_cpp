@@ -1,0 +1,9 @@
+[Unit]
+Description=CodingVeda backend service.
+
+[Service]
+Type=simple
+ExecStart=/home/$USER/projects/codingveda_backend_cpp/build/codingveda_backend_cpp
+
+[Install]
+WantedBy=multi-user.target
