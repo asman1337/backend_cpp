@@ -13,11 +13,11 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build
       # Build your program with the given configuration
-      run: /home/ubuntu/projects/codingveda_backend_cpp/scripts/build.sh
+      run: scripts/build.sh
       
     - name: Run
       # Build your program with the given configuration
-      run: /home/ubuntu/projects/codingveda_backend_cpp/scripts/run.sh
+      run: scripts/run.sh
       
 #     - name: Test
 #       working-directory: ${{github.workspace}}/build
