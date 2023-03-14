@@ -16,7 +16,7 @@ jobs:
       run: ${{github.workspace}}/scripts/build.sh
       
     - name: Run
-      # Build your program with the given configuration
+      # Run your program with the given configuration
       run: ${{github.workspace}}/scripts/run.sh
       
 #     - name: Test
