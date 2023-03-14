@@ -1,0 +1,27 @@
+name: CMake
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+env:
+  BUILD_TYPE: Release
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build
+      # Build your program with the given configuration
+      run: /home/ubuntu/projects/codingveda_backend_cpp/scripts/build.sh
+      
+    - name: Run
+      # Build your program with the given configuration
+      run: /home/ubuntu/projects/codingveda_backend_cpp/scripts/run.sh
+      
+#     - name: Test
+#       working-directory: ${{github.workspace}}/build
+#       # Execute tests defined by the CMake configuration.
+#       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
+#       run: ctest -C ${{env.BUILD_TYPE}}
+
