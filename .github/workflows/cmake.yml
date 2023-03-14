@@ -13,11 +13,11 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build
       # Build your program with the given configuration
-      run: scripts/build.sh
+      run: ${{github.workspace}}/scripts/build.sh
       
     - name: Run
       # Build your program with the given configuration
-      run: scripts/run.sh
+      run: ${{github.workspace}}/scripts/run.sh
       
 #     - name: Test
 #       working-directory: ${{github.workspace}}/build
