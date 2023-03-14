@@ -2,5 +2,10 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/source/third_party/drogon" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/source/third_party/drogon/trantor" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/source/third_party/jsoncpp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/source/third_party/jwt-cpp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/source/third_party/libbcrypt" vcs="Git" />
   </component>
 </project>

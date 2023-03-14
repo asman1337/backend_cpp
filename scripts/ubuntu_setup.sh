@@ -22,7 +22,7 @@ fi
 sudo add-apt-repository --update -y ppa:ubuntu-toolchain-r/test &&
 sudo apt update && sudo apt --fix-broken upgrade -y &&
 #Install build system
-sudo apt-get install build-essential gcc-12 make libssl-dev pkg-config clang curl zip unzip tar git -y &&
+sudo apt-get install build-essential gcc-12 make libssl-dev pkg-config clang ninja-build curl zip unzip tar git -y &&
 #For Drogon [default-libmysqlclient-dev]
 sudo apt install libjsoncpp-dev uuid-dev openssl libssl-dev zlib1g-dev libhiredis-dev libmariadb-dev -y
 

@@ -7,8 +7,7 @@
 
 void initServerRequirements();
 
-int main()
-{
+int main() {
     initServerRequirements();
     std::cout << "- " << LibConstants::Project::name << " Server is now running ..." << std::endl;
     std::cout << "- Live at http://" << LibConstants::Server::host << ":" << LibConstants::Server::port << std::endl;
@@ -18,39 +17,38 @@ int main()
      * Configuring Database
      */
     drogon::app().createDbClient(
-        LibConstants::Database::dbType,
-        LibConstants::Database::dbHost,
-        LibConstants::Database::dbPort,
-        LibConstants::Database::dbName,
-        LibConstants::Database::dbUserName,
-        LibConstants::Database::dbPassword,
-        LibConstants::Database::dbConnections);
+            LibConstants::Database::dbType,
+            LibConstants::Database::dbHost,
+            LibConstants::Database::dbPort,
+            LibConstants::Database::dbName,
+            LibConstants::Database::dbUserName,
+            LibConstants::Database::dbPassword,
+            LibConstants::Database::dbConnections);
     /**
      * Configuring Server
      */
     drogon::app()
-        .setupFileLogger()
-        .setLogPath("./logs")
-        .setLogLevel(trantor::Logger::kError)
-        .setUploadPath("./uploads")
-        .enableGzip(true)
-        .setServerHeaderField("asman/1.0.1")
-        .addListener(LibConstants::Server::host, LibConstants::Server::port)
-        .registerHandler("/", [](
-                                  const drogon::HttpRequestPtr &req,
-                                  std::function<void(const drogon::HttpResponsePtr &)> &&callback)
-                         {
-                        auto resp = drogon::HttpResponse::newHttpResponse();
-                        resp->setBody("We love C++");
-                        callback(resp); })
-        .setThreadNum(LibHelpers::getThreadsForServer())
-        .run();
+            .setupFileLogger()
+            .setLogPath("./logs")
+            .setLogLevel(trantor::Logger::kError)
+            .setUploadPath("./uploads")
+            .enableGzip(true)
+            .setServerHeaderField("asman/1.0.1")
+            .addListener(LibConstants::Server::host, LibConstants::Server::port)
+            .registerHandler("/", [](
+                    const drogon::HttpRequestPtr &req,
+                    std::function<void(const drogon::HttpResponsePtr &)> &&callback) {
+                auto resp = drogon::HttpResponse::newHttpResponse();
+                resp->setBody("We love C++");
+                callback(resp);
+            })
+            .setThreadNum(LibHelpers::getThreadsForServer())
+            .run();
 
     return 0;
 }
 
-void initServerRequirements()
-{
+void initServerRequirements() {
     if (!std::filesystem::exists(LibConstants::Server::logFolder))
         std::filesystem::create_directory(LibConstants::Server::logFolder);
 

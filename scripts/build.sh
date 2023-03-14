@@ -1,8 +1,10 @@
 #Check for build folder and doesn't exist then create it.
-DIRECTORY="../build"
+DIRECTORY="build"
 if [ ! -d "$DIRECTORY" ]; then
   mkdir $DIRECTORY
+else
+  rm -frd $DIRECTORY
 fi
 
-cmake -B ../build -S . -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPES=RELEASE -G Ninja &&
-cmake --build ../build --target codingveda_backend_cpp
+cmake -B $DIRECTORY -S . -DCMAKE_CXX_COMPILER=g++-12 -DCMAKE_BUILD_TYPES=RELEASE -G Ninja &&
+  cmake --build $DIRECTORY --target codingveda_backend_cpp
