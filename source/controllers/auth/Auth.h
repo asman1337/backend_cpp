@@ -10,7 +10,7 @@ using namespace drogon;
 using namespace drogon::orm;
 using namespace drogon_model::codingVeda;
 
-namespace api::v1 {
+namespace v1 {
     class Auth : public drogon::HttpController<Auth> {
     public:
         METHOD_LIST_BEGIN

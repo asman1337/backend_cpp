@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.25)
 project(codingveda_backend_cpp CXX)
 
 set(CMAKE_CXX_STANDARD 23)
-set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++2b -std=c++23 -std=gnu++2b")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++2b -std=c++23 -std=gnu++2b")
 
 include(CheckIncludeFileCXX)
 
@@ -44,15 +44,15 @@ target_link_libraries(${PROJECT_NAME} PRIVATE Drogon::Drogon)
 
 # ##############################################################################
 
+# With C++14, use boost to support any, string_view and filesystem
 if (CMAKE_CXX_STANDARD LESS 17)
-    # With C++14, use boost to support any, string_view and filesystem
     message(STATUS "use c++14")
     find_package(Boost 1.61.0 REQUIRED)
     target_link_libraries(${PROJECT_NAME} PUBLIC Boost::boost)
-elseif (CMAKE_CXX_STANDARD LESS 23)
-    message(STATUS "use c++20")
 elseif (CMAKE_CXX_STANDARD LESS 20)
     message(STATUS "use c++17")
+elseif (CMAKE_CXX_STANDARD LESS 23)
+    message(STATUS "use c++20")
 else ()
     message(STATUS "use c++23")
 endif ()
@@ -63,17 +63,22 @@ aux_source_directory(plugins PLUGIN_SRC)
 aux_source_directory(models MODEL_SRC)
 aux_source_directory(utils UTIL_SRC)
 
-target_include_directories(${PROJECT_NAME}
+target_include_directories(
+        ${PROJECT_NAME}
         PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}
-        ${CMAKE_CURRENT_SOURCE_DIR}/models)
-target_sources(${PROJECT_NAME}
+        ${CMAKE_CURRENT_SOURCE_DIR}/models
+)
+
+target_sources(
+        ${PROJECT_NAME}
         PRIVATE
         ${SRC_DIR}
         ${CTL_SRC}
         ${FILTER_SRC}
         ${PLUGIN_SRC}
         ${MODEL_SRC}
-        ${UTIL_SRC})
+        ${UTIL_SRC}
+)
 
 # ##############################################################################
 # uncomment the following line for dynamically loading views

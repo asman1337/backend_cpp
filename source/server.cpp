@@ -9,6 +9,7 @@ void initServerRequirements();
 
 int main() {
     initServerRequirements();
+    //opted for std::cout instead of combining with std::format to avoid error while using g++-12
     std::cout << "- " << LibConstants::Project::name << " Server is now running ..." << std::endl;
     std::cout << "- Live at http://" << LibConstants::Server::host << ":" << LibConstants::Server::port << std::endl;
     std::cout << "- Using " << LibHelpers::getThreadsForServer() << " threads." << std::endl;
@@ -45,7 +46,7 @@ int main() {
             .setThreadNum(LibHelpers::getThreadsForServer())
             .run();
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 void initServerRequirements() {
